@@ -1,0 +1,135 @@
+body {
+	background-color: #ebebeb;
+	font-family: sans-serif;
+	margin: 0 auto;
+}
+
+#container {
+	width: 1000px;
+	height: 100%;
+	border-radius: 30px;
+	margin: 0 auto;
+}
+
+#head {
+	width: 441px;
+	height: 224px;
+}
+
+#head img {
+	margin-top: -5px;
+	margin-left: -30px;
+}
+
+
+#nav {
+	width: 200px;
+	height: 520px;
+	background-color: black;
+	border-radius: 40px;
+	margin-left: 20px;
+	margin-top: -120px;
+	float: left;
+	box-shadow: 0px 0px 10px #000000;
+}
+
+#nav ul {
+	width: 200px;
+	margin-top: 100px;
+	/*margin-left: 5px;*/
+	padding: 0px
+}
+
+#nav li {
+	list-style-type: none;
+	width: 200px;
+	height: 71px;
+}
+
+#content {
+	width: 740px;
+	height: 535px;
+	background-color: black;
+	margin-top: -150px;
+	margin-left: 240px;
+	border-radius: 40px;
+	box-shadow: 0px 0px 10px #000000;
+}
+
+#welcome {
+	width: 650px;
+	color: white;
+	padding: 30px;
+	font-size: 16px;
+	margin: 0 auto;
+}
+
+#dict a:link {
+	text-decoration: underline;
+	background-color: gray;
+	color: white;
+}
+
+#dict a:visited {
+	text-decoration: underline;
+	background-color: gray;
+	color: white;
+}
+
+#dict a:hover {
+	background-color: black;
+}
+
+#dict a:active {
+	text-decoration: underline;
+	background-color: gray;
+	color: white;
+}
+
+#tableHolder {
+	width: 626px;
+	height: 363px;
+	padding: 60px;
+}
+
+#goneBananasBoard {
+	width: 626px;
+	height: 363px;
+	background-image: url("assets/goneBananasBoard.png");
+	margin: 0 auto;
+	border-radius: 10px;
+	z-index: -1;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+.ranNum, #winNum1, #winNum2, #yourNums {
+	background-color: #c17124;
+}
+
+#reveal {
+	width: 626px;
+	height: 363px;
+	margin-top: -363px;
+	text-align: center;
+}	
+
+.banana {
+	position: relative;
+	background-image: url("assets/banana.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	z-index: 1;
+}
+
+#rules {
+	background-color: rgba(255, 215, 0, .5);
+	border-radius: 10px;
+	border-spacing: 2px;
+}
+
+tr, td {
+	text-align: center;
+}

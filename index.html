@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>A LOTTA LOTTO</title>
+<!--
+    TITLE: A LOTTA LOTTO
+    AUTHOR: Rebecca Gorby
+    PURPOSE: mock online scratch-off website
+    ORIGINALLY CREATED ON: 11/13/2014
+    LAST MODIFIED ON: 12/07/2014
+-->
+<link href="style.css" rel="stylesheet" type="text/css">
+	<script src="js/jquery-2.1.0.min.js"></script>
+	<script src="js/TweenLite.min.js"></script>
+	<script src="js/CSSPlugin.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			/*creates neon hover effect on nav items*/	
+			$("#home").mouseover(function() {
+					$(this).css("backgroundImage", "url(assets/homeHover.png)");
+				})
+				.mouseout(function() {
+					$(this).css("backgroundImage", "none");
+				})
+				
+			$("#boards").mouseover(function() {
+					$(this).css("backgroundImage", "url(assets/boardsHover.png)");
+				})
+				.mouseout(function() {
+					$(this).css("backgroundImage", "none");
+				})
+			
+			$("#prizes").mouseover(function() {
+					$(this).css("backgroundImage", "url(assets/prizesHover.png)");
+				})
+				.mouseout(function() {
+					$(this).css("backgroundImage", "none");
+				})
+		});
+	</script>
+</head>
+
+<body>
+	<div id="container">
+		<div id="head"><img src="assets/head.png" alt="A LOTTA LOTTO"></div>
+		
+		<div id="nav">
+			<ul>
+				<li id="home"><a href="index.html"><img src="assets/home.png" alt="home"></a></li>
+				<li id="boards"><a href="boards.html"><img src="assets/boards.png" alt="boards"></a></li>
+				<li id="prizes"><a href="prizes.html"><img src="assets/prizes.png" alt="prizes"></a></li>
+			</ul>
+		</div>
+		
+		<div id="content">
+			<div id="welcome">
+			<br>
+			<br>
+			<p>Well look what we've got here! You look like you're in the right spot! If you fit ANY of the following definitions, (which I am SURE you do), sit back, click around, play some games, and just enjoy yourself!<br>
+			(Note: all the following definitions cited from <span id="dict"><a href="http://www.thefreedictionary.com/">thefreedictionary.com</a></span>)</p> 
+			<blockquote>
+			<dl>
+				<dt>risk taker</dt>
+				<dd>someone who risks loss or injury in the hope of gain or excitement</dd>
+				<dt>gambler</dt>
+				<dd>a person who wages money on the outcome of games</dd>
+				<dt>high roller</dt>
+				<dd>one who spends freely and extravagantly</dd>
+				<dt>lucky</dt>
+				<dd>having or bringing good fortune</dd>
+				<dt>bored</dt>
+				<dd>not having or showing interest in other things</dd>
+			</dl>
+			</blockquote>
+			<p>P.S. If you don't fit any of these definitions, don't feel neglected! I am certain you will enjoy your time here just as much as the next guy!</p>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

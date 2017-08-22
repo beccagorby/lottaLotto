@@ -1,0 +1,174 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>A LOTTA LOTTO: Gone Bananas</title>
+<!--
+    TITLE: A LOTTA LOTTO: Gone Bananas Board
+    AUTHOR: Rebecca Gorby
+    PURPOSE: mock online scratch-off website, boards page
+    ORIGINALLY CREATED ON: 11/13/2014
+    LAST MODIFIED ON: 12/07/2014
+-->
+<link href="style.css" rel="stylesheet" type="text/css">
+	<script src="js/jquery-2.1.0.min.js"></script>
+	<script src="js/TweenLite.min.js"></script>
+	<script src="js/CSSPlugin.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			/*creates neon hover effect on nav items*/	
+			$("#home").mouseover(function() {
+					$(this).css("backgroundImage", "url(assets/homeHover.png)");
+				})
+				.mouseout(function() {
+					$(this).css("backgroundImage", "none");
+				})
+				
+			$("#boards").mouseover(function() {
+					$(this).css("backgroundImage", "url(assets/boardsHover.png)");
+				})
+				.mouseout(function() {
+					$(this).css("backgroundImage", "none");
+				})
+			
+			$("#prizes").mouseover(function() {
+					$(this).css("backgroundImage", "url(assets/prizesHover.png)");
+				})
+				.mouseout(function() {
+					$(this).css("backgroundImage", "none");
+				})
+			/*removes banana cover that hides numbers*/
+			$(".banana").click(function() {
+				$(this).css("backgroundImage", "none");
+			})
+		});
+	</script>
+</head>
+
+<body>
+	<div id="container">
+		<div id="head"><img src="assets/head.png" alt="A LOTTA LOTTO"></div>
+		
+		<div id="nav">
+			<ul>
+				<li id="home"><a href="index.html"><img src="assets/home.png" alt="home"></a></li>
+				<li id="boards"><a href="boards.html"><img src="assets/boards.png" alt="home"></a></li>
+				<li id="prizes"><a href="prizes.html"><img src="assets/prizes.png" alt="home"></a></li>
+			</ul>
+		</div>
+		
+		<div id="content">
+			<div id="tableHolder">
+			<!--GAME TABLE WITH NUMBERS-->
+				<table id="goneBananasBoard">
+					<tr style="height: 90px">
+						<td colspan="6"></td>
+					</tr>
+					<tr>
+						<td style="width: 20px;"></td>
+						<td id="yourNums" colspan="2" style="height: 30px; color: #ffd700">Your Numbers</td>
+						<td id="rules" rowspan="2" colspan="2">Match one of your numbers to the mystery numbers to win!</td>
+						<td></td>
+					</tr>
+					<tr style="height: 70px">
+						<td></td>
+						<td id="winNum1" style="width: 85px; border-bottom: 2px solid #ffd700"></td>
+						<td id="winNum2" style="width: 85px; border-bottom: 2px solid #ffd700"></td>
+						<td></td>
+					</tr>
+					<tr style="height: 70px">
+						<td></td>
+						<td class="ranNum"></td>
+						<td class="ranNum"></td>
+						<td class="ranNum" style="width: 85px"></td>
+						<td class="ranNum" style="width: 85px"></td>
+						<td></td>
+					</tr>
+					<tr style="height: 70px">
+						<td></td>
+						<td class="ranNum" style="width: 85px"></td>
+						<td class="ranNum"></td>
+						<td class="ranNum"></td>
+						<td class="ranNum"></td>
+						<td></td>
+					</tr>
+					<tr>
+						<td colspan="6"></td>
+					</tr>
+				</table>
+			
+			<!--TABLE WITH BANANAS TO REVEAL NUMBERS-->
+			<table id="reveal">
+				<tr style="height: 90px">
+					<td colspan="6"></td>
+				</tr>
+				<tr>
+					<td style="width: 20px;"></td>
+					<td colspan="2" style="height: 30px;"></td>
+					<td rowspan="2" colspan="2"></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td style="width: 20px;"></td>
+					<td class="banana" style="width: 85px; height: 65px"></td>
+					<td class="banana" style="width: 85px"></td>
+					<td></td>
+				</tr>
+				<tr style="height: 70px;">
+					<td></td>
+					<td class="banana"></td>
+					<td class="banana"></td>
+					<td class="banana" style="width: 85px"></td>
+					<td class="banana" style="width: 85px"></td>
+					<td></td>
+				</tr>
+				<tr style="height: 70px">
+					<td></td>
+					<td class="banana" style="width: 85px"></td>
+					<td class="banana"></td>
+					<td class="banana"></td>
+					<td class="banana"></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td colspan="6"></td>
+				</tr>
+			</table>
+			<button id="playAgain" onclick="playAgain()">Play Again</button>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		/*defining variables*/
+		var win1 = document.getElementById("winNum1");
+		var win2 = document.getElementById("winNum2");
+		var rando = document.getElementsByClassName("ranNum");
+		/*creates random numbers for users "winning" numbers*/
+		win1.innerHTML = Math.floor(Math.random() * 30);
+		win2.innerHTML = Math.floor(Math.random() * 30);
+		/*if winning numbers match, one will change so they aren't the same*/
+		if (win1.innerHTML == win2.innerHTML) {
+			win1.innerHTML = Math.floor(Math.random() * 30);
+		}
+		
+		/*loop to create random numbers for the numbers to match with winning numbers*/
+		for (var i = 0; i < rando.length; i++) {
+			rando[i].innerHTML = Math.floor(Math.random() * 30);
+			/*if random numbers match the users "winning" numbers, the random number will turn blue so user knows they have won*/
+			if (win1.innerHTML == rando[i].innerHTML) {
+				rando[i].style.color = "blue";
+			}
+			if (win2.innerHTML == rando[i].innerHTML) {
+				rando[i].style.color = "blue";
+			}
+		};
+		
+		/*function to reset board if player wants to play again*/
+		function playAgain() {
+			location.reload();
+		}
+		
+	</script>
+</body>
+</html>

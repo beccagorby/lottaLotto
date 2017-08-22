@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Practice</title>
+<style>
+
+	#container {
+		width: 500px;
+		height: 400px;
+		background-color: gray;
+		margin: 0 auto;
+	}
+	tr, td {
+	width: 50px;
+	height: 50px;
+	text-align: center;
+    border: 1px solid black;}
+    
+    .winNum1, .winNum2 {
+    	background-color: yellow;
+    }
+    
+    
+</style>
+</head>
+<body>
+	<div id="container">
+		<table id="scratch">
+			<tr>
+				<td></td>
+				<td id="winNum1"></td>
+				<td id="winNum2"> </td>
+			</tr>
+			<tr>
+				<td class="ranNum"></td>
+				<td class="ranNum"></td>
+				<td class="ranNum"></td>
+				<td class="ranNum"</td>
+			</tr>
+			<tr>
+				<td class="ranNum"></td>
+				<td class="ranNum"></td>
+				<td class="ranNum"></td>
+				<td class="ranNum"></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td class="ranNum"></td>
+				<td class="ranNum"></td>
+			</tr>
+			<tr>
+				<td id="result"></td>
+			</tr>
+			<tr>
+				<td id="count"></td>
+				<td id="wins"></td>
+				<td id="percent"></td>
+			</tr>
+		</table>
+		<button onclick="myFuntion()" >Button</button>
+	</div>
+	
+	<script>
+	
+		var win1 = document.getElementById("winNum1");
+		var win2 = document.getElementById("winNum2");
+		var result = document.getElementById("result");
+		var winTimes = 0;
+		var counter = 0;
+		win1.innerHTML = Math.floor(Math.random() * 30);
+		win2.innerHTML = Math.floor(Math.random() * 30);
+		if (win1.innerHTML == win2.innerHTML) {
+			win1.innerHTML = Math.floor(Math.random() * 30);
+		}
+		
+		var rando = document.getElementsByClassName("ranNum");
+		for (var i = 0; i < rando.length; i++) {
+			rando[i].innerHTML = Math.floor(Math.random() * 30);
+			if (rando[i].innerHTML == win1.innerHTML 
+				|| rando[i].innerHTML == win2.innerHTML) {
+					result.innerHTML = "Win";
+					rando[i].style.backgroundColor = "blue";
+					winTimes +=1;
+					
+			}};
+		
+		function myFuntion() {
+			counter +=1;
+		win1.innerHTML = Math.floor(Math.random() * 30);
+		win2.innerHTML = Math.floor(Math.random() * 30);
+		if (win1.innerHTML == win2.innerHTML) {
+			win1.innerHTML = Math.floor(Math.random() * 30);
+		}
+		
+		var rando = document.getElementsByClassName("ranNum");
+		for (var i = 0; i < rando.length; i++) {
+			rando[i].innerHTML = Math.floor(Math.random() * 26);
+			if (rando[i].innerHTML == win1.innerHTML 
+				|| rando[i].innerHTML == win2.innerHTML) {
+					result.innerHTML = "Win";
+					rando[i].style.backgroundColor = "blue";
+					winTimes +=1;
+					
+			} else {rando[i].style.backgroundColor = "gray"}};
+			document.getElementById("wins").innerHTML = winTimes;
+			document.getElementById("count").innerHTML = counter;
+			document.getElementById("percent").innerHTML = (winTimes/counter) * 100;
+		}
+		
+	</script>
+</body>
+</html>
